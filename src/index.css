@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,900;1,900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Playfair Display", serif;
+
+  --color-copper: #b87333;
+  --color-brass: #b5a642;
+  --color-iron: #434b4d;
+  --color-rust: #8b3103;
+}
+
+@layer base {
+  body {
+    @apply bg-[#0a0908] text-stone-300 antialiased selection:bg-rust/30 overflow-hidden;
+    background-image: 
+      radial-gradient(circle at 50% -20%, #432818 0%, transparent 70%),
+      radial-gradient(circle at 0% 100%, #221508 0%, transparent 50%);
+  }
+}
+
+@layer components {
+  .heading-font {
+    font-family: var(--font-sans);
+  }
+
+  .display-font {
+    font-family: var(--font-display);
+  }
+
+  .side-panel {
+    @apply bg-black/40 backdrop-blur-xl border-stone-800/50;
+  }
+
+  .board-container {
+    @apply bg-[#1a1410] border-8 border-[#3d2b1f] shadow-[0_0_50px_rgba(0,0,0,0.5)] relative;
+    background-image: url("https://www.transparenttextures.com/patterns/dark-leather.png");
+  }
+
+  .wall-hit {
+    animation: shake 0.4s;
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(6px, 0); }
+  50% { transform: translate(-6px, 0); }
+  75% { transform: translate(6px, 0); }
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-thumb { background: #5c4033; border-radius: 10px; }
